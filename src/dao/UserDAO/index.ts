@@ -1,7 +1,10 @@
+import { DAO } from "../../dao/DAO";
 import { UserModel } from "../../models";
 
-export default {
-  getAllUsers: async () => {
-    return await UserModel.find();
-  },
-};
+// class UserDao extends DAO {
+//   async testExtent(id: string) {
+//     return ["Hello", "World"];
+//   }
+// }
+
+export default new DAO(UserModel);

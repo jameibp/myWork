@@ -8,7 +8,7 @@ export default async () => {
       useUnifiedTopology: true,
     } as ConnectOptions);
     console.log("MongoDB Loaded");
-  } catch (error) {
+  } catch (error: any) {
     console.log(`MongoDB Error :- ${error.message}`);
   }
 };
