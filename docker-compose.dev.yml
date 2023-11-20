@@ -1,0 +1,13 @@
+version: "3"
+services:
+  ts-node-docker:
+    volumes:
+      - /home/dheeraj/dev/hello-ts:/app:ro
+      - /app/node_modules
+    expose:
+      - "4050"
+    ports:
+      - "4050:4000"
+    env_file:
+      - ./.dev.env
+    command: npm run dev
