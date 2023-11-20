@@ -4,10 +4,10 @@ services:
   ts-node-docker:
     build:
       target: production
-    command: node dir/index.js
+    command: node build/app.js
     expose:
       - "4000"
     ports:
       - "4000:4000"
     env_file:
-      - ./.prod.env
+      - ./.env

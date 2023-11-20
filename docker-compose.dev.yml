@@ -1,13 +1,22 @@
 version: "3"
 services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27018:27017"
   ts-node-docker:
     volumes:
-      - /home/dheeraj/dev/hello-ts:/app:ro
+      - F:\dev\mywork\backend-ts:/app:ro
       - /app/node_modules
     expose:
       - "4050"
     ports:
       - "4050:4000"
     env_file:
-      - ./.dev.env
+      - ./.env
+    depends_on:
+      - mongo
     command: npm run dev
