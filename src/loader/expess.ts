@@ -10,8 +10,8 @@ import "express-async-errors";
 import { DateTime } from "../utils";
 
 export default async ({ app }: { app: Application }) => {
-  app.get("/status", (req, res) => res.sendStatus(200).send("Okay").end());
-  app.head("/status", (req, res) => res.sendStatus(200).send("Okay").end());
+  app.get("/status", (req, res) => res.sendStatus(200).end());
+  app.head("/status", (req, res) => res.sendStatus(200).end());
 
   app.enable("trust proxy");
 
