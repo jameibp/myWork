@@ -10,9 +10,6 @@ import "express-async-errors";
 import { DateTime } from "../utils";
 
 export default async ({ app }: { app: Application }) => {
-  app.get("/status", (req, res) => res.sendStatus(200).end());
-  app.head("/status", (req, res) => res.sendStatus(200).end());
-
   app.enable("trust proxy");
 
   app.use(
@@ -29,6 +26,8 @@ export default async ({ app }: { app: Application }) => {
     next();
   });
   app.use(morgan(config.logs.morgan));
+  app.get("/status", (req, res) => res.send("200").end());
+  app.head("/status", (req, res) => res.sendStatus(200).end());
 
   indexRouter(app);
 
